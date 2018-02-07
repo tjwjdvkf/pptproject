@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="signup">
+	
+	<insert id="insertMember" parameterType="com.sjh.signup.SignupVO">
+	        INSERT INTO tbl_member(
+	            userid,
+	            userpwd,
+	            username,
+	            email,
+	            addr1,
+	            addr2,
+	            addr3
+	        )VALUES(
+	            #{userid},
+	            PASSWORD(#{userpwd}),
+	            #{username},
+	            #{email},
+	            #{addr1},
+	            #{addr2},
+	            #{addr3}
+	        )
+	    </insert>
+
+</mapper>

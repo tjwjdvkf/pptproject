@@ -22,10 +22,10 @@ public class SingupController {
     //SignUp PSOT
         @RequestMapping(value="/signup.do", method=RequestMethod.POST)
         public String signupPOST(SignupVO signVO) {
-            
+           
             signupService.insertMember(signVO);
             
-            return "main";
+            return "redirect:/main.do";
         }
     
     

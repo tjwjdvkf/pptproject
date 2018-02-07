@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Main</title>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script src="/resources/js/addressapi.js"></script>
+  <script src="/resources/js/signupvalidation.js"></script>
+<title>회원가입</title>
 </head>
  
 <body>
@@ -46,18 +49,17 @@
                             	</div>
                             	<div class="form-group">
                             		<label style="display: block;" >주소</label>
-                            		<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text"  >
+                            		<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
                             		<button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
                             		
                             	</div>
                             	<div class="form-group">
-                            		<input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text"  />
+                            		<input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" />
                             	</div>
                             	<div class="form-group">
                             		<input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"  />
                             	</div>
-                            	<button class="btn btn-lg btn-success btn-block">회원가입</button>
-                            	<!-- <input type="button" class="btn btn-lg btn-success btn-block" value="회원가입" onclick="DosignUp();" /> -->
+                            	<input type="submit" class="btn btn-lg btn-success btn-block" value="회원가입" onclick="DosignUp();" />
                             </fieldset>
                         </form>
                     </div>

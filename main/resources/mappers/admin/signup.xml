@@ -6,7 +6,7 @@
   
 <mapper namespace="signup">
 	
-	<insert id="insertMember" parameterType="com.sjh.signup.SignupVO">
+		<insert id="insertMember" parameterType="com.sjh.signup.SignupVO">
 	        INSERT INTO tbl_member(
 	            userid,
 	            userpwd,
@@ -25,5 +25,13 @@
 	            #{addr3}
 	        )
 	    </insert>
+	    
+	    <select id="idcheck" parameterType="String" resultType="Integer">
+	    	SELECT COUNT(*) FROM tbl_member
+	    	WHERE
+	    		userid = #{userid}
+	    </select>
+	    
+	    
 
 </mapper>

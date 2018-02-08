@@ -15,4 +15,10 @@ public class SignupDAOImpl implements SignupDAO {
     public void insertMember(SignupVO signVO) {
         session.insert("insertMember",signVO);
     }
+
+	@Override
+	public int idcheck(String userid) {
+	
+		return session.selectOne("idcheck",userid);
+	}
 }

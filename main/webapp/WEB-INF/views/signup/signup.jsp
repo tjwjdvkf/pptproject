@@ -11,9 +11,57 @@
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script src="/resources/js/addressapi.js"></script>
   <script src="/resources/js/signupvalidation.js"></script>
+  <script src="http://code.jquery.com/jquery-2.2.4.js"></script>
 <title>회원가입</title>
 </head>
- 
+<script type="text/javascript">
+//아이디 체크여부 확인 (아이디 중복일 경우 = 0 , 중복이 아닐경우 = 1 )
+var idck = 0;
+$(function() {
+	//idck 버튼을 클릭했을 때 
+	$("#idck").click(function() {
+		
+		//userid 를 param.
+		var userid =  $("#userid").val(); 
+		
+		$.ajax({
+			async: true,
+			type : 'POST',
+			data : userid,
+			url : "idcheck.do",
+			dataType : "json",
+			contentType: "application/json; charset=UTF-8",
+			success : function(data) {
+				if (data.cnt > 0) {
+					
+					alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+					//아이디가 존제할 경우 빨깡으로 , 아니면 파랑으로 처리하는 디자인
+					$("#divInputId").addClass("has-error")
+					$("#divInputId").removeClass("has-success")
+					$("#userid").focus();
+					
+				
+				} else {
+					alert("사용가능한 아이디입니다.");
+					//아이디가 존제할 경우 빨깡으로 , 아니면 파랑으로 처리하는 디자인
+					$("#divInputId").addClass("has-success")
+					$("#divInputId").removeClass("has-error")
+					$("#userpwd").focus();
+					//아이디가 중복하지 않으면  idck = 1 
+					idck = 1;
+					
+				}
+			},
+			error : function(error) {
+				
+				alert("error : " + error);
+			}
+		});
+	});
+});
+
+
+</script>
 <body>
 <div class="container">
         <div class="row">
@@ -23,13 +71,13 @@
                         <h3 class="panel-title">Please Sign Up</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="/signup/signup.do" method="post">
+                        <form role="form" name="frm" id="frm" action="/signup/signup.do" method="post">
                         <!-- <form role="form"> -->
                             <fieldset>
                             	<div class="form-group" id="divInputId">
                             		<label>아이디</label>
                             		<input class="form-control" style="margin-bottom: 5px;" placeholder="아이디" name="userid" id="userid" type="text" />
-                            		<input type="button" class="btn btn-default" style="width: 30%;" value="중복확인" onclick="duplicationId();" />
+                            		<input type="button" class="btn btn-default" style="width: 30%;" value="중복확인" name="idck" id="idck"/>
                             	</div>
                             	<div class="form-group">
                             		<label>비밀번호</label>
@@ -59,7 +107,7 @@
                             	<div class="form-group">
                             		<input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"  />
                             	</div>
-                            	<input type="submit" class="btn btn-lg btn-success btn-block" value="회원가입" onclick="DosignUp();" />
+                            	<input type="button" class="btn btn-lg btn-success btn-block"  value="회원가입" onclick="DosignUp();" />
                             </fieldset>
                         </form>
                     </div>

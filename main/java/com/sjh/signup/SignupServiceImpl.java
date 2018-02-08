@@ -14,4 +14,9 @@ public class SignupServiceImpl implements SignupService {
     public void insertMember(SignupVO signVO) {
         dao.insertMember(signVO);
     }
+
+	@Override
+	public int idcheck(String userid) {
+		return dao.idcheck(userid);
+	}
 }

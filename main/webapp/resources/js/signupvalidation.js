@@ -1,5 +1,5 @@
+
 function DosignUp() {
-	
 	var userid = $("#userid").val();
 	var userpwd = $("#userpwd").val();
 	var inputPwdCfm = $("#signUpUserPwdCfm").val();
@@ -8,12 +8,14 @@ function DosignUp() {
 	var addr1 = $("#addr1").val();
 	var addr2 = $("#addr2").val();
 	var addr3 = $("#addr3").val();
+
 	
 	if(userid.length == 0){
 		alert("아이디를 입력해 주세요"); 
 		$("#userid").focus();
 		return false;
 	}
+
 	
 	if(userpwd.length == 0){
 		alert("비밀번호를 입력해 주세요"); 
@@ -26,6 +28,7 @@ function DosignUp() {
 		$("#signUpUserPwd").focus();
 		return false; 
 	}
+	
 
 	if(username.length == 0){
 		alert("이름을 입력해주세요");
@@ -46,8 +49,13 @@ function DosignUp() {
 	}
 	
 	if(confirm("회원가입을 하시겠습니까?")){
+		if(idck==0){
+			alert('아이디 중복체크를 해주세요');
+			return false;
+		}else{
 		alert("회원가입을 축하합니다");
-		return true;
+		$("#frm").submit();
+		}
 	}
 	
 }

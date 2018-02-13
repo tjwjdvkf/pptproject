@@ -16,6 +16,11 @@
 <div class="container">
   <h3>회원가입</h3>
   <a href="/signup/signup.do" class="btn btn-primary">회원가입</a>
+  <a href="/signup/signup.do" class="btn btn-primary">로그인</a>
+</div>
+<div class="container">
+  <h3>게시판</h3>
+  <a href="/board/boardList.do" class="btn btn-info">게시판</a>
 </div>
  
 </body>

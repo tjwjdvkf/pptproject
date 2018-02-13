@@ -8,7 +8,7 @@
 <configuration>
 
 	<typeAliases>		
-		 <package name="com.sjh.admin.vo"/>
+		 <package name="com.sjh.board"/>
 	</typeAliases>
 
 </configuration>
